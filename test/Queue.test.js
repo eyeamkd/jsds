@@ -1,0 +1,10 @@
+"use strict";
+exports.__esModule = true;
+var Queue_1 = require("../Queue");
+var queue = new Queue_1["default"](8);
+queue.insert(7);
+queue.insert(90);
+queue.insert(681);
+queue.remove();
+queue.remove();
+console.log(queue.peek());
