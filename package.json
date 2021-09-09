@@ -1,0 +1,23 @@
+{
+  "name": "jsds",
+  "version": "1.0.0",
+  "description": "DSA in JS",
+  "main": "Stack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyeamkd/jsds.git"
+  },
+  "keywords": [
+    "js",
+    "data-structures"
+  ],
+  "author": "Kunal Dubey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eyeamkd/jsds/issues"
+  },
+  "homepage": "https://github.com/eyeamkd/jsds#readme"
+}
