@@ -1,6 +1,6 @@
 {
   "name": "cormen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "DSA in JS",
   "main": "Stack.js",
   "scripts": {
