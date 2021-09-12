@@ -1,0 +1,12 @@
+"use strict";
+exports.__esModule = true;
+var AnimalShelter_1 = require("./AnimalShelter");
+var animalShelter = new AnimalShelter_1["default"]();
+animalShelter.enQueue({ type: 'Dog', breed: 'Saint Bernard', age: 16 });
+animalShelter.enQueue({ type: 'Cat', breed: 'Persian', age: 6 });
+animalShelter.enQueue({ type: 'Dog', breed: 'Great Dane', age: 24 });
+animalShelter.enQueue({ type: 'Cat', breed: 'Persian', age: 16 });
+animalShelter.enQueue({ type: 'Cat', breed: 'Persian', age: 61 });
+animalShelter.enQueue({ type: 'Cat', breed: 'Persian', age: 26 });
+// const animal = animalShelter.deQueue();
+console.log(animalShelter.deQueue());
