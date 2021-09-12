@@ -2,19 +2,25 @@ import {LinkedList,LinkNode} from './LinkedList';
 
 class Stack {
     private linkedList: LinkedList<any>; 
-    private minValue:number = Number.MAX_VALUE;
+    private minValue:number = Number.MAX_VALUE; 
+    private stackSize:number = 0;
   
     constructor(value: any) {
       this.linkedList = new LinkedList<typeof value>(value); 
-      this.checkMin(value);
+      this.checkMin(value); 
+      this.stackSize+=1;
     }
   
     public push(node: number) {  
         this.checkMin(node);
-        this.linkedList.append(node);
+        this.linkedList.append(node); 
+        this.stackSize+=1;
     }
-    public pop(): any{
-        return this.linkedList.pop();
+    public pop(): any{ 
+        if(!this.isEmpty()){
+            this.stackSize-=1;
+            return this.linkedList.pop();
+        }
     }
     public isEmpty(): Boolean {
       return this.linkedList.Head!=null?  false: true;
@@ -29,6 +35,10 @@ class Stack {
     private checkMin(node:number){ 
         if(node<this.minValue)
             this.minValue = node;
+    }
+
+    public size(){
+        return this.stackSize;
     }
   }
   
