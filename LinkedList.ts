@@ -6,27 +6,24 @@ class LinkNode<T> {
     constructor(value:T,prev:any){
         this.value = value;
         this.prev =prev;
-        this.next = null;
     }
   }
   
   class LinkedList<T> {
-    public Head: LinkNode<T>;
-    public latest: LinkNode<T>;
+    public Head: LinkNode<T> = null;
+    public latest: LinkNode<T> = null;
   
     public append(element: T) {
-      const linkNode = new LinkNode<T>(element,this.latest); 
-      if(this.Head.next==null){
-          this.Head.next = linkNode; 
-          this.latest = linkNode;
-      }
-      this.latest.next = linkNode;
+      const linkNode = new LinkNode<T>(element,this.latest);
+      linkNode.value = element;
+      linkNode.next = null;
+      linkNode.prev = this.latest;
       this.latest = linkNode;
     }
   
     public constructor(value: any) { 
       let head = new LinkNode(value,null); 
-      this.Head = head; 
+      this.Head = head;
       this.latest = head;
     }
   
@@ -35,17 +32,9 @@ class LinkNode<T> {
         let nodeToPop = null;
         nodeToPop = this.latest;
         this.latest = this.latest.prev;
-        return nodeToPop;
+        return nodeToPop.value;
       }
-    }
-
-    public remove(){
-        if(this.Head!=null){
-            let head = this.Head.value;
-            this.Head = this.Head.next;
-            return head;
-        }
     }
   } 
 
-export {LinkNode,LinkedList}
+  export  {LinkedList,LinkNode};

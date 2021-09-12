@@ -1,28 +1,27 @@
 "use strict";
 exports.__esModule = true;
-exports.LinkedList = exports.LinkNode = void 0;
+exports.LinkNode = exports.LinkedList = void 0;
 var LinkNode = /** @class */ (function () {
     function LinkNode(value, prev) {
         this.value = value;
         this.prev = prev;
-        this.next = null;
     }
     return LinkNode;
 }());
 exports.LinkNode = LinkNode;
 var LinkedList = /** @class */ (function () {
     function LinkedList(value) {
+        this.Head = null;
+        this.latest = null;
         var head = new LinkNode(value, null);
         this.Head = head;
         this.latest = head;
     }
     LinkedList.prototype.append = function (element) {
         var linkNode = new LinkNode(element, this.latest);
-        if (this.Head.next == null) {
-            this.Head.next = linkNode;
-            this.latest = linkNode;
-        }
-        this.latest.next = linkNode;
+        linkNode.value = element;
+        linkNode.next = null;
+        linkNode.prev = this.latest;
         this.latest = linkNode;
     };
     LinkedList.prototype.pop = function () {
@@ -30,14 +29,7 @@ var LinkedList = /** @class */ (function () {
             var nodeToPop = null;
             nodeToPop = this.latest;
             this.latest = this.latest.prev;
-            return nodeToPop;
-        }
-    };
-    LinkedList.prototype.remove = function () {
-        if (this.Head != null) {
-            var head = this.Head.value;
-            this.Head = this.Head.next;
-            return head;
+            return nodeToPop.value;
         }
     };
     return LinkedList;
