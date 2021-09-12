@@ -5,6 +5,7 @@ var LinkNode = /** @class */ (function () {
     function LinkNode(value, prev) {
         this.value = value;
         this.prev = prev;
+        this.next = null;
     }
     return LinkNode;
 }());
@@ -22,6 +23,7 @@ var LinkedList = /** @class */ (function () {
         linkNode.value = element;
         linkNode.next = null;
         linkNode.prev = this.latest;
+        this.latest.next = linkNode;
         this.latest = linkNode;
     };
     LinkedList.prototype.pop = function () {

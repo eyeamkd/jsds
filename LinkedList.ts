@@ -6,6 +6,7 @@ class LinkNode<T> {
     constructor(value:T,prev:any){
         this.value = value;
         this.prev =prev;
+        this.next = null;
     }
   }
   
@@ -17,7 +18,8 @@ class LinkNode<T> {
       const linkNode = new LinkNode<T>(element,this.latest);
       linkNode.value = element;
       linkNode.next = null;
-      linkNode.prev = this.latest;
+      linkNode.prev = this.latest; 
+      this.latest.next = linkNode;
       this.latest = linkNode;
     }
   
